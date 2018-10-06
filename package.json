@@ -4,24 +4,27 @@
   "description": "Web Performance Optimization Workshop ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "Mateusz Kwasniewski <kwasniewski.mateusz@gmail.com>",
-  "license": "ISC",
-  "scripts": {
     "watch": "parcel watch index.html",
     "build": "parcel build index.html",
     "start": "node server.js",
     "prod": "npm-run-all build start",
-    "dev": "npm-run-all --parallel watch start"
+    "dev": "npm-run-all --parallel watch start",
+    "generate:eot": "ls fonts/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % ttf2eot %.ttf %.eot",
+    "generate:woff": "ls fonts/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % ttf2woff %.ttf %.woff",
+    "generate:woff2": "ls fonts/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % sh -c \"cat %.ttf | ttf2woff2 > %.woff2\"",
+    "fonts:generate": "npm-run-all --parallel generate:*"
   },
+  "author": "Mateusz Kwasniewski <kwasniewski.mateusz@gmail.com>",
+  "license": "ISC",
   "dependencies": {
     "compression": "1.7.3",
     "express": "4.16.3"
   },
   "devDependencies": {
     "npm-run-all": "4.1.3",
-    "parcel-bundler": "1.10.1"
+    "parcel-bundler": "1.10.1",
+    "ttf2eot": "2.0.0",
+    "ttf2woff": "2.0.1",
+    "ttf2woff2": "2.0.3"
   }
 }
