@@ -9,9 +9,9 @@
     "start": "node server.js",
     "prod": "npm-run-all build start",
     "dev": "npm-run-all --parallel watch start",
-    "generate:eot": "ls fonts/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % ttf2eot %.ttf %.eot",
-    "generate:woff": "ls fonts/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % ttf2woff %.ttf %.woff",
-    "generate:woff2": "ls fonts/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % sh -c \"cat %.ttf | ttf2woff2 > %.woff2\"",
+    "generate:eot": "ls fonts/**/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % ttf2eot %.ttf %.eot",
+    "generate:woff": "ls fonts/**/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % ttf2woff %.ttf %.woff",
+    "generate:woff2": "ls fonts/**/*.ttf | sed -e 's/\\.ttf//g' | xargs -I % sh -c \"cat %.ttf | ttf2woff2 > %.woff2\"",
     "fonts:generate": "npm-run-all --parallel generate:*",
     "fonts:subset": "node scripts/fontSubset.js"
   },
