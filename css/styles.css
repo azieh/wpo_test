@@ -263,27 +263,6 @@ body {
     background-color: lightgrey;
 }
 
-/* http://bennettfeely.com/clippy/ */
-.services__image--variant1 {
-    clip-path: polygon(50% 0%, 95% 13%, 100% 68%, 83% 95%, 25% 100%, 0 90%, 6% 8%);
-}
-
-.services__image--variant2 {
-    clip-path: polygon(39% 1%, 96% 2%, 99% 31%, 94% 92%, 64% 88%, 7% 92%, 1% 16%);
-}
-
-.services__image--variant3 {
-    clip-path: polygon(1% 2%, 88% 3%, 99% 52%, 92% 100%, 40% 100%, 2% 95%, 7% 51%);
-}
-
-.services__image--variant4 {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-}
-
-.services__image--variant5 {
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-}
-
 .services__overlay {
     position: absolute;
     top: 0;
@@ -425,29 +404,6 @@ body {
 
     font-size: .75em;
     text-align: center;
-}
-
-/* playing with typing animation */
-@keyframes typing {
-    from {
-        width: 0
-    }
-}
-
-@keyframes caret {
-    50% {
-        border-right-color: transparent;
-    }
-}
-
-.typing {
-    font: bold 200% Consolas, Monaco, monospace;
-    width: 8.25em;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: .05em solid;
-    animation: typing 8s steps(15),
-    caret 1s steps(1) infinite;
 }
 
 .actions {
