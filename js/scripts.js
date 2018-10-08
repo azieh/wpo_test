@@ -6,6 +6,7 @@ $(function onDomContentLoaded() {
 
     parallax();
     loadFonts();
+    lazyLoadImages();
 
     window.addEventListener('scroll', parallax);
     window.addEventListener('resize', parallax);
@@ -46,4 +47,12 @@ function loadFonts() {
 
         });
     }
+}
+
+function lazyLoadImages() {
+    var bLazy = new Blazy({
+        selector: ".lazy",
+        container: "body",
+        loadInvisible: true
+    });
 }
