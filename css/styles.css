@@ -449,3 +449,15 @@ body {
     animation: typing 8s steps(15),
     caret 1s steps(1) infinite;
 }
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 16px;
+}
+
+.actions__action a {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
