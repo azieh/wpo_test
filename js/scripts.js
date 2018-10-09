@@ -19,7 +19,7 @@ $(function onDomContentLoaded() {
             success: function(result) {
                 document.querySelector(".footer__text").textContent = result.value;
             },
-            async: false
+            async: true
         });
     });
 });
