@@ -136,6 +136,12 @@ body {
     max-height: 9.5em;
 }
 
+@media (min-width: 64.375em) {
+    .header__nav-items {
+        max-height: inherit;
+    }
+}
+
 .header__nav-item {
     padding: .5em;
 
