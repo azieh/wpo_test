@@ -26,7 +26,8 @@
     "blazy": "1.8.2",
     "compression": "1.7.3",
     "express": "4.16.3",
-    "jquery": "3.3.1"
+    "jquery": "3.3.1",
+    "shrink-ray-current": "2.1.2"
   },
   "devDependencies": {
     "fontmin": "0.9.7-beta",
