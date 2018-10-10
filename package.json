@@ -6,6 +6,7 @@
   "scripts": {
     "watch": "parcel watch index.html",
     "build": "parcel build index.html",
+    "build:static": "npm-run-all build inline:css",
     "start:prod": "node server.js",
     "start:dev": "nodemon server.js",
     "prod": "npm-run-all build inline:css start:prod",
