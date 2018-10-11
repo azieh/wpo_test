@@ -1,0 +1,11 @@
+{
+  "median": {
+    "firstView": {
+      "SpeedIndex": 1500,
+      "TTFB": 300,
+      "render": 800,
+      "requests": 30,
+      "loadTime": 3000
+    }
+  }
+}

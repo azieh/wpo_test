@@ -20,7 +20,8 @@
     "optimise:webp": "node scripts/jpegToWebP.js",
     "generate:sprites": "svg-sprite --css --css-render-css --css-dest=css --css-sprite=../images/icons.svg --css-layout=diagonal images/icons/*.svg",
     "print:selectors": "longest-selectors css/styles.css",
-    "inline:css": "style-in dist/index.html > dist/index.critical.html"
+    "inline:css": "style-in dist/index.html > dist/index.critical.html",
+    "test": "webpagetest test https://mindventures.netlify.com/index.critical.html --key=${WPT_KEY} --runs=3 --first --poll --timeout 120 --location='ec2-us-east-1:Chrome' --specs=test/testspecs.json"
   },
   "author": "Mateusz Kwasniewski <kwasniewski.mateusz@gmail.com>",
   "license": "ISC",
@@ -46,6 +47,7 @@
     "svg-sprite": "1.5.0",
     "ttf2eot": "2.0.0",
     "ttf2woff": "2.0.1",
-    "ttf2woff2": "2.0.3"
+    "ttf2woff2": "2.0.3",
+    "webpagetest": "0.3.9"
   }
 }
