@@ -68,8 +68,8 @@ function parallax() {
         var serviceHeight = document.querySelector(".services__service").offsetHeight;
 
         [].slice.call(document.querySelectorAll(".services__overlay")).forEach(function (element) {
-            element.style.top = serviceHeight * currentPosition / bodyHeight + "px";
-
+            // element.style.top = serviceHeight * currentPosition / bodyHeight + "px";
+            element.style.transform = "translateY(" + serviceHeight * currentPosition / bodyHeight + "px)";
         });
     }
 }
