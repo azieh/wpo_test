@@ -9,8 +9,8 @@ var lazyLoadImages = require("./lazyLoadImages");
     loadFonts();
     lazyLoadImages();
 
-    window.addEventListener('scroll', parallax);
-    window.addEventListener('resize', parallax);
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
 
     document.querySelector(".footer").addEventListener("click", function() {
         ajax({
@@ -42,6 +42,10 @@ function ajax(config) {
     };
 
     request.send();
+}
+
+function onScroll() {
+    requestAnimationFrame(parallax);
 }
 
 function parallax() {
