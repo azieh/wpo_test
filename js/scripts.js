@@ -50,11 +50,11 @@ function parallax() {
     var servicesOffset = document.querySelector(".services").getBoundingClientRect().top + document.body.scrollTop;
 
     if (scroll >= servicesOffset) {
-        [].slice.call(document.querySelectorAll(".services__overlay")).forEach(function (element) {
-            var currentPosition = window.scrollY + window.innerHeight / 2;
-            var bodyHeight = document.querySelector("body").offsetHeight;
-            var serviceHeight = document.querySelector(".services__service").offsetHeight;
+        var currentPosition = window.scrollY + window.innerHeight / 2;
+        var bodyHeight = document.querySelector("body").offsetHeight;
+        var serviceHeight = document.querySelector(".services__service").offsetHeight;
 
+        [].slice.call(document.querySelectorAll(".services__overlay")).forEach(function (element) {
             element.style.top = serviceHeight * currentPosition / bodyHeight + "px";
 
         });
