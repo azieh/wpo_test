@@ -11,6 +11,12 @@ app.use(shrinkRay({
         return false;
     }
 }));
+
+app.use(function(req, res, next) {
+    console.log(req.path, " requested at ", new Date());
+    next();
+});
+
 app.use(express.static("dist", {
     setHeaders(res, path) {
         var fileType = mime.getType(path);
