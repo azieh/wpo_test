@@ -1,16 +1,24 @@
-var version = 2;
-
-console.log("SW version "+ version +" script run at", new Date());
-
-self.addEventListener("install", function(event) {
-    console.log("SW version " + version + " installed at", new Date());
-    self.skipWaiting();
-});
-self.addEventListener("activate", function(event) {
-    console.log("SW  version " + version + " activated at", new Date());
-});
+var version = 17;
+var name = "wpo::" + version;
 
 self.addEventListener("fetch", function(event) {
-    event.respondWith(fetch(event.request));
-    // event.respondWith(new Response("<b>hacked</b>", {headers: {"Content-Type": "text/html"}}));
+    // open cache by name
+    event.respondWith(caches.open(name).then(function(cache) {
+        // does my cache have a value I need?
+        return cache.match(event.request).then(function(cacheResponse) {
+
+            // fetch response from a network/HTTP cache
+            var fetchPromise = fetch(event.request).then(function(networkResponse) {
+                // store response in a cache
+                // close it first because otherwise it can be only used once
+                // we may use it second time when we return it to event.respondWith
+                cache.put(event.request, networkResponse.clone());
+                return networkResponse;
+            });
+
+            // return either cached value or a network response wrapped in a promise
+            // Promise API handles values and values wrapped in Promises
+            return cacheResponse || fetchPromise;
+        });
+    }));
 });
