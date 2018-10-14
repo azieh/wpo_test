@@ -1,5 +1,18 @@
-var version = 17;
+var version = 20;
 var name = "wpo::" + version;
+
+self.addEventListener("activate", function(event) {
+    console.log("SW  version " + version + " activated at", new Date());
+    event.waitUntil(
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(cacheNames.filter(function (cacheName) {
+                return cacheName !== name;
+            }).map(function (cacheName) {
+                return caches.delete(cacheName);
+            }));
+        })
+    );
+});
 
 self.addEventListener("fetch", function(event) {
     // open cache by name
